@@ -34,3 +34,23 @@ function getEventWeekday(daysFromToday){
 
 console.log(getEventWeekday(9));
 console.log(getEventWeekday(2));
+
+// Weather wear
+
+function weatherWear(temperature) {
+
+    if (temperature < 0) {
+        console.log("It's very cold. It is better to dress warmly!")
+    } else if (temperature > 0 && temperature < 10) {
+        console.log("It's still cold. It is better to wear pants, a sweater and a jacket!")
+    } else if (temperature > 10 && temperature < 20){
+        console.log("It's warm. It will be better to wear shorts and a T-shirt!")
+    } else {
+        console.log("It's very hot. It will be better to go to the beach!")
+    }
+}
+
+weatherWear(-9);
+weatherWear(9);
+weatherWear(15);
+weatherWear(25);
