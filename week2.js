@@ -19,4 +19,18 @@ getFullname();
 getFullname("Benjamin", "Hughes", true);
 getFullname("Benjamin", "Hughes", false);
 
+// Event application
 
+function getEventWeekday(daysFromToday){
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    const today = new Date();
+    const todayIndex = today.getDay();
+
+    const eventDayIndex = (todayIndex + daysFromToday) % 7;
+
+    return daysOfWeek[eventDayIndex];
+}
+
+console.log(getEventWeekday(9));
+console.log(getEventWeekday(2));
