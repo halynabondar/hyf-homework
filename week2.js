@@ -1,72 +1,72 @@
 //Flight booking fullname function
 
-// function getFullname(firstname, surname, useFormalName, gender){
-//     let fullname1 = "Halyna";
-//     let fullname2 = "Bondar";
-//     // console.log(fullname1 + " " + fullname2);
-//
-//     const fullName = `${firstname} ${surname}`;
-//     let formalPrefix = '';
-//     if (useFormalName) {
-//         formalPrefix = (!gender || gender === 'male') ? 'Lord ' : 'Lady ';
-//     }
-//     const result=`${formalPrefix}${fullName}`;
-//     console.log(result);
-//     return result;
-// }
-// getFullname();
-//
-// getFullname("Benjamin", "Hughes", true);
-// getFullname("Benjamin", "Hughes", false);
+function getFullname(firstname, surname, useFormalName, gender){
+    let fullname1 = "Halyna";
+    let fullname2 = "Bondar";
+    // console.log(fullname1 + " " + fullname2);
+
+    const fullName = `${firstname} ${surname}`;
+    let formalPrefix = '';
+    if (useFormalName) {
+        formalPrefix = (!gender || gender === 'male') ? 'Lord ' : 'Lady ';
+    }
+    const result=`${formalPrefix}${fullName}`;
+    console.log(result);
+    return result;
+}
+getFullname();
+
+getFullname("Benjamin", "Hughes", true);
+getFullname("Benjamin", "Hughes", false);
 
 // Event application
 
-// function getEventWeekday(daysFromToday){
-//     const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-//
-//     const today = new Date();
-//     const todayIndex = today.getDay();
-//
-//     const eventDayIndex = (todayIndex + daysFromToday) % 7;
-//
-//     return daysOfWeek[eventDayIndex];
-// }
-//
-// console.log(getEventWeekday(9));
-// console.log(getEventWeekday(2));
+function getEventWeekday(daysFromToday){
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    const today = new Date();
+    const todayIndex = today.getDay();
+
+    const eventDayIndex = (todayIndex + daysFromToday) % 7;
+
+    return daysOfWeek[eventDayIndex];
+}
+
+console.log(getEventWeekday(9));
+console.log(getEventWeekday(2));
 
 // Weather wear
 
-// function weatherWear(temperature) {
-//
-//     if (temperature < 0) {
-//         console.log("It's very cold. It is better to dress warmly!")
-//     } else if (temperature > 0 && temperature < 10) {
-//         console.log("It's still cold. It is better to wear pants, a sweater and a jacket!")
-//     } else if (temperature > 10 && temperature < 20){
-//         console.log("It's warm. It will be better to wear shorts and a T-shirt!")
-//     } else {
-//         console.log("It's very hot. It will be better to go to the beach!")
-//     }
-// }
-//
-// weatherWear(-9);
-// weatherWear(9);
-// weatherWear(15);
-// weatherWear(25);
+function weatherWear(temperature) {
+
+    if (temperature < 0) {
+        console.log("It's very cold. It is better to dress warmly!")
+    } else if (temperature > 0 && temperature < 10) {
+        console.log("It's still cold. It is better to wear pants, a sweater and a jacket!")
+    } else if (temperature > 10 && temperature < 20){
+        console.log("It's warm. It will be better to wear shorts and a T-shirt!")
+    } else {
+        console.log("It's very hot. It will be better to go to the beach!")
+    }
+}
+
+weatherWear(-9);
+weatherWear(9);
+weatherWear(15);
+weatherWear(25);
 
 // Student manager
 
 const class07Students = [];
 function addStudentToClass(studentName) {
     if (studentName === "") {
-        console.log("Can not be empty!");
+        console.log("Cannot be empty!");
         return;
     }
 
     if (getNumberOfStudents() >= 6) {
         if (studentName !== "Queen") {
-            console.log("Too many!");
+            console.log("Cannot add more students to class 07.");
             return;
         } else {
             console.log("Long live the Queen!");
@@ -74,7 +74,7 @@ function addStudentToClass(studentName) {
     }
 
     if (class07Students.indexOf(studentName) !== -1) {
-        console.log(`${studentName} already in the class!`);
+        console.log(`${studentName} is already in the class!`);
         return;
     }
 
@@ -100,12 +100,43 @@ addStudentToClass("Queen"); // 7
 
 console.log(`Students count: ${getNumberOfStudents()}`);
 
-// Candy helper optional
+// Candy helper
 
+const prices = [
+    { type: 'Sweet', price: 0.5 },
+    { type: 'Chocolate', price: 0.7 },
+    { type: 'Toffee', price: 1.1 },
+    { type: 'Chewing-gum', price: 0.03 },
+]
+
+const amountToSpend = Math.random() * 100;
 const boughtCandyPrices = [];
 function addCandy(candyType, weight) {
-    const priceCandy = boughtCandyPrices.push;
-
+    const priceRecord = prices.find(price => price.type === candyType)
+    const candiesCost = priceRecord.price * weight;
+    boughtCandyPrices.push(candiesCost);
 }
 
-addCandy("sweet", 20);
+function canBuyMoreCandy(){
+    // Array prototype does not implement min/max, therefore sorting in ascending order and taking first one
+    const minPriceRecord = prices.sort((a, b) => a.price - b.price)[0];
+
+    let totalCost = 0;
+
+    // for (let i= 0; i < remainingBudget.length; i++){
+    //     totalCost += boughtCandyPrices[i];
+    // }
+
+    boughtCandyPrices.forEach(candyCost => totalCost += candyCost);
+
+    const remainingBudget = amountToSpend - totalCost;
+    if (remainingBudget >= minPriceRecord.price){
+        console.log("You can buy more, so please do!");
+    } else {
+        console.log("Enough candy for you!");
+    }
+}
+
+addCandy("Sweet", 20);
+addCandy("Chocolate", 2);
+canBuyMoreCandy()
