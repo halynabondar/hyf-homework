@@ -12,10 +12,11 @@ const names = [
     "Tala",
 ];
 const nameToRemove = names.splice(1, 1);
+console.log(nameToRemove);
 
 console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala']
 
-// When will we be there?
+// // When will we be there?
 
 const travelInformation = {
     speed: 50,
@@ -32,7 +33,7 @@ function calculateTime(){
     return `${hours} hours and ${minutes} minutes`;
 }
 
-// Series duration of my life
+// // Series duration of my life
 
 const seriesDurations = [
     {
@@ -78,16 +79,51 @@ function logOutSeriesText() {
 
 logOutSeriesText();
 
-// Smart-ease - Back to the basics!
-//NOnoN0nOYes
+// //// Smart-ease - Back to the basics!
+// //NOnoN0nOYes
 
 const notes = [];
 
 function saveNote(content, id){
-    notes.push({content: content, id: id});
-};
+    notes.push({content, id});
+}
 
 saveNote("Pick up groceries", 1);
 saveNote("Do laundry", 2);
 
 console.log(notes); // [{content: 'Pick up groceries', id: 1}, {content: 'Do laundry', id: 2}]
+
+// Get a note
+
+function getNote(id) {
+
+    if (typeof id !== 'number' || id === undefined){
+        console.error('Invalid ID: ID must be a number.');
+        return null;
+    }
+
+    for (let note of notes) {
+        if (note.id === id) {
+            return note;
+        }
+    }
+
+        console.error(`Note with ID ${id} not found.`);
+        return null;
+}
+
+const firstNote = getNote(1);
+console.log(firstNote); // {content: 'Pick up groceries', id: 1}
+
+const nonExistentNote = getNote(3);
+console.log(nonExistentNote); // null
+
+// Log out notes
+
+function logOutNotesFormatted() {
+    notes.forEach((notes) =>  console.log(`The note with id: ${notes.id}, has the following note text: ${notes.content}`))
+}
+logOutNotesFormatted(); // should log out the text below
+
+// The note with id: 1, has the following note text: Pick up groceries
+// The note with id: 2, has the following note text: Do laundry
