@@ -127,3 +127,26 @@ logOutNotesFormatted(); // should log out the text below
 
 // The note with id: 1, has the following note text: Pick up groceries
 // The note with id: 2, has the following note text: Do laundry
+
+//// CactusIO-interactive (Smart phone usage app)
+// Adding an activity
+
+/*
+let activities = [];
+function addActivity(date, activity, duration) {
+    activities.push({date, activity, duration});
+    }
+
+addActivity("23/7-18", "Youtube", 30);
+console.log(activities)
+
+// Show my status
+
+function showStatus(){
+    console.log()
+    if (activities === ""){
+    console.log("Add some activities before calling showStatus")
+    } else{
+        return `You have added 3 activities. They amount to 78 min. of usage`
+    }
+}*/
