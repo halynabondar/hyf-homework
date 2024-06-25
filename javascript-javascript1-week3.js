@@ -131,22 +131,51 @@ logOutNotesFormatted(); // should log out the text below
 //// CactusIO-interactive (Smart phone usage app)
 // Adding an activity
 
-/*
-let activities = [];
+const activities = [];
+
 function addActivity(date, activity, duration) {
-    activities.push({date, activity, duration});
+    activities.push({ date, activity, duration });
+}
+
+addActivity("23/10-18", "Youtube", 30);
+addActivity('24/2-18', "Netflix", 50);
+addActivity('29/1-18', "Writing", 90);
+
+function showStatus(activities) {
+    if (!activities.length) {
+        return "Add some activities before calling showStatus";
     }
 
-addActivity("23/7-18", "Youtube", 30);
-console.log(activities)
+    const totalActivities = activities.length;
+    const durationLimit = 200;
+    let totalDuration = 0;
 
-// Show my status
-
-function showStatus(){
-    console.log()
-    if (activities === ""){
-    console.log("Add some activities before calling showStatus")
-    } else{
-        return `You have added 3 activities. They amount to 78 min. of usage`
+    for (let index = 0; index < activities.length; index++) {
+        const activity = activities[index];
+        totalDuration += activity.duration;
     }
-}*/
+
+    if (totalDuration > durationLimit) {
+        return "You have reached your limit, no more smartphoning for you!";
+    }
+
+    return `You have added ${totalActivities} activities. They amount to ${totalDuration} min. of usage.`;
+}
+
+const activitiesStatus = showStatus(activities);
+console.log(activitiesStatus);
+
+function longestActivity(activities) {
+    let longest = activities[0];
+
+    for (let index = 0; index < activities.length; index++) {
+        const activity = activities[index];
+        if (activity.duration > longest.duration) {
+            longest = activity;
+        }
+    }
+
+    return `The longest activity is ${longest.activity} with ${longest.duration} minutes.`
+}
+
+console.log(longestActivity(activities));
