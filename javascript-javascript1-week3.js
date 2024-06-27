@@ -11,20 +11,21 @@ const names = [
     "katrine",
     "Tala",
 ];
-const nameToRemove = names.splice(1, 1);
-console.log(nameToRemove);
 
+const nameToRemove = "Ahmad";
+const nameToRemoveIndex = names.indexOf(nameToRemove);
+
+if (nameToRemoveIndex !== -1) {
+    names.splice(nameToRemoveIndex, 1);
+}
 console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrine', 'Tala']
 
-// // When will we be there?
+// When will we be there?
 
 const travelInformation = {
     speed: 50,
     destinationDistance: 432,
 };
-
-const travelTime = calculateTime(travelInformation);
-console.log(travelTime); // 8 hours and 38 minutes
 
 function calculateTime(){
     const time = travelInformation.destinationDistance / travelInformation.speed;
@@ -32,6 +33,9 @@ function calculateTime(){
     const minutes= Math.floor((time - hours) * 60);
     return `${hours} hours and ${minutes} minutes`;
 }
+
+const travelTime = calculateTime(travelInformation);
+console.log(travelTime); // 8 hours and 38 minutes
 
 // // Series duration of my life
 
