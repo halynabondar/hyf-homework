@@ -3,24 +3,40 @@ const ul = document.querySelector('#list');
 console.log("Script loaded");
 
 const products = getAvailableProducts();
-function renderProducts(products) {
 
+function renderTitle(title) {
+    const titleElement = document.createElement('span');
+    titleElement.textContent = title;
+    titleElement.classList.add('flex-col', 'title');
+    return titleElement;
+}
+
+function renderRating(rating) {
+    const ratingElement = document.createElement('span');
+    ratingElement.textContent = `rating: ${rating}`;
+    ratingElement.classList.add('flex-col', 'rating');
+    return ratingElement;
+}
+
+function renderPrice(price) {
+    const priceElement = document.createElement('span');
+    priceElement.classList.add('flex-col', 'price');
+    priceElement.textContent = `${price} DKK`;
+    return priceElement;
+}
+
+function renderProduct(product) {
+    const li = document.createElement('li');
+    li.appendChild(renderTitle(product.id));
+    li.appendChild(renderRating(product.rating));
+    li.appendChild(renderPrice(product.price));
+    li.classList.add('flex-row');
+    return li;
+}
+
+function renderProducts(products) {
     for (let product of products) {
-        const li = document.createElement('li');
-        li.classList.add('flex-row');
-        const title = document.createElement('span');
-        title.textContent = product.id;
-        title.classList.add('flex-col', 'title');
-        const rating = document.createElement('span');
-        rating.textContent = `rating: ${product.rating}`;
-        rating.classList.add('flex-col', 'rating');
-        const price = document.createElement('span');
-        price.classList.add('flex-col', 'price');
-        price.textContent = `${product.price} DKK`;
-        li.appendChild(title);
-        li.appendChild(rating);
-        li.appendChild(price);
-        ul.appendChild(li);
+        ul.appendChild(renderProduct(product));
     }
 }
 

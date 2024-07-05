@@ -57,7 +57,6 @@ function animalName() {
     } else {
         alert(`${inputValue}: ${inputValue} - ${spiritAnimals[randIndex]}.`);
     }
-
 }
 
 button.addEventListener('click', animalName);

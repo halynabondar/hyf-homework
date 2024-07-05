@@ -17,22 +17,22 @@ ul {
     padding: 0;
 }
 
-.flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.flex-col{
+.flex-col {
     display: flex;
     flex-direction: column;
 }
 
-.title{
+.title {
     min-width: 400px;
 }
 
-.rating{
+.rating {
     min-width: 200px;
 }
 
