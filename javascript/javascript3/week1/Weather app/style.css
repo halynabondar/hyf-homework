@@ -1,0 +1,16 @@
+#city-value {
+    padding: 5px 10px;
+    border: solid 1px crimson;
+    border-radius: 5px;
+}
+#btn {
+    background-color: crimson;
+    padding: 6px 11px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    transition: background-color ease 0.3s;
+}
+#btn:hover {
+    background-color: #fc4267;
+}
