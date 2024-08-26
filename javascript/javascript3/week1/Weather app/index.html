@@ -7,14 +7,20 @@
 </head>
 <body>
 <div id="wrapper">
-    <form id="form">
-        <label>
-            <input id="city-value" placeholder="Write here a city name..." required>
-        </label>
-        <button id="btn" type="submit">Search</button>
-    </form>
-    <ul id="weather"></ul>
+    <div id="info">
+        <form id="form">
+            <label>
+                <input type="search" id="city-value" placeholder="Write here a city name..." required>
+            </label>
+            <button id="btn" type="submit">Search</button>
+        </form>
+        <ul id="weather"></ul>
+    </div>
+    <div>
+        <button id="current-position">Current <br>position</button>
+    </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>

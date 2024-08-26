@@ -1,12 +1,10 @@
 let apiKey = "9380dd2ab47018447083c22d9985a598";
 const btn = document.getElementById('btn');
 const cityValueInput = document.getElementById('city-value');
-
+const ul = document.getElementById('weather');
 
 const handleWeatherInfo = (event) => {
     event.preventDefault();
-
-    const ul = document.getElementById('weather');
     ul.innerHTML = '';
     const cityValue = cityValueInput.value;
 
@@ -26,7 +24,7 @@ const handleWeatherInfo = (event) => {
             })
             .then(data => {
                 const temperature = document.createElement('li');
-                temperature.innerHTML = `<b>Temperature:</b> ${data.main.temp}°C`;
+                temperature.innerHTML = `<b>Temperature:</b> ${Math.round(data.main.temp)}°C`;
 
                 const weatherIcon = document.createElement('li')
                 weatherIcon.innerHTML = `<b>Description:</b> ${data.weather[0].description}`;
@@ -64,3 +62,38 @@ const handleWeatherInfo = (event) => {
 };
 
 btn.addEventListener('click', handleWeatherInfo);
+
+const currentPositionBtn = document.getElementById('current-position');
+function handleCurrentPosition(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+
+    function successCallback(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+    }
+
+    function errorCallback(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                console.log("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                console.log("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                console.log("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                console.log("An unknown error occurred.");
+                break;
+        }
+    }
+}
+
+currentPositionBtn.addEventListener('click', handleCurrentPosition);
