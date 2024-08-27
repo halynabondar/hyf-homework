@@ -8,6 +8,8 @@ SELECT COUNT(*) FROM task WHERE due_date IS NULL;
 SELECT * FROM task WHERE status = 'done';
 
 -- 4. Find all the tasks that are not marked as done
+SELECT * FROM task WHERE status != 'done';
+
 -- 5. Get all the tasks, sorted with the most recently created first
 -- 6. Get the single most recently created task
 -- 7. Get the title and due date of all tasks where the title or description contains database
