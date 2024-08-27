@@ -40,4 +40,8 @@ SELECT title,
 FROM task
 
 -- 9. Get the name of each status, along with a count of how many tasks have that status
+SELECT status, COUNT(*) AS task_count
+FROM task
+GROUP BY status_id;
+
 -- 10. Get the names of all statuses, sorted by the status with most tasks first
