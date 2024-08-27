@@ -45,3 +45,7 @@ FROM task
 GROUP BY status_id;
 
 -- 10. Get the names of all statuses, sorted by the status with most tasks first
+SELECT status_id, COUNT(*) AS task_count
+FROM task
+GROUP BY status_id
+ORDER BY task_count DESC;
