@@ -35,5 +35,9 @@ WHERE title LIKE '%database%'
    OR description LIKE '%database%';
 
 -- 8. Get the title and status (as text) of all tasks
+SELECT title,
+       status_id
+FROM task
+
 -- 9. Get the name of each status, along with a count of how many tasks have that status
 -- 10. Get the names of all statuses, sorted by the status with most tasks first
