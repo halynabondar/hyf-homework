@@ -2,6 +2,10 @@
 SELECT COUNT(*) FROM task;
 
 -- 2. Find out how many tasks in the task table do not have a valid due date
+SELECT COUNT(*)
+FROM task
+WHERE due_date IS NULL;
+
 -- 3. Find all the tasks that are marked as done
 -- 4. Find all the tasks that are not marked as done
 -- 5. Get all the tasks, sorted with the most recently created first
