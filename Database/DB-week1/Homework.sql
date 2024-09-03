@@ -1,5 +1,5 @@
 -- 1. Find out how many tasks are in the task table
-SELECT COUNT(*) AS total_tasks
+SELECT COUNT(*)
 FROM task;
 
 -- 2. Find out how many tasks in the task table do not have a valid due date
@@ -8,14 +8,16 @@ FROM task
 WHERE due_date IS NULL;
 
 -- 3. Find all the tasks that are marked as done
-SELECT *
+SELECT task.*
 FROM task
-WHERE status_id = 3;
+         JOIN status ON task.status_id = status.id
+WHERE status.name = 'Done';
 
 -- 4. Find all the tasks that are not marked as done
-SELECT *
+SELECT task.*
 FROM task
-WHERE status_id != 3;
+         JOIN status ON task.status_id = status.id
+WHERE status.name != 'Done';
 
 -- 5. Get all the tasks, sorted with the most recently created first
 SELECT *
@@ -29,8 +31,7 @@ ORDER BY created DESC
 LIMIT 1;
 
 -- 7. Get the title and due date of all tasks where the title or description contains database
-SELECT title,
-       due_date
+SELECT *
 FROM task
 WHERE title LIKE '%database%'
    OR description LIKE '%database%';
@@ -41,15 +42,18 @@ SELECT title,
 FROM task;
 
 -- 9. Get the name of each status, along with a count of how many tasks have that status
-SELECT status_id, COUNT(*) AS task_count
+SELECT status.name, COUNT(*)
 FROM task
-GROUP BY status_id;
+         JOIN status ON task.status_id = status.id
+GROUP BY status.name;
 
 -- 10. Get the names of all statuses, sorted by the status with most tasks first
-SELECT status_id, COUNT(*) AS task_count
-FROM task
-GROUP BY status_id
-ORDER BY task_count DESC;
+SELECT status.name, COUNT(task.status_id) AS status_count
+FROM status
+         JOIN task on task.status_id = status.id
+GROUP BY
+    task.status_id
+ORDER BY status_count DESC;
 
 
 -- Class exercises
@@ -99,7 +103,7 @@ WHERE title LIKE '%SQL%'
 SELECT t.title
 FROM task t
          JOIN user u ON t.user_id = u.id
-WHERE u.name = 'Maryrose';
+WHERE u.name = '%Maryrose%';
 
 -- Find how many tasks each user is responsible for;
 SELECT u.name, COUNT(*) AS task_count
