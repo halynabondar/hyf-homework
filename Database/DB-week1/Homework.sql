@@ -31,10 +31,10 @@ ORDER BY created DESC
 LIMIT 1;
 
 -- 7. Get the title and due date of all tasks where the title or description contains database
-SELECT *
+SELECT title, due_date
 FROM task
 WHERE title LIKE '%database%'
-   OR description LIKE '%database%';
+    OR description LIKE '%database%';
 
 -- 8. Get the title and status (as text) of all tasks
 SELECT title,
@@ -42,10 +42,10 @@ SELECT title,
 FROM task;
 
 -- 9. Get the name of each status, along with a count of how many tasks have that status
-SELECT status.name, COUNT(*)
+SELECT status.name, COUNT(task.status_id)
 FROM task
          JOIN status ON task.status_id = status.id
-GROUP BY status.name;
+GROUP BY task.status_id;
 
 -- 10. Get the names of all statuses, sorted by the status with most tasks first
 SELECT status.name, COUNT(task.status_id) AS status_count
@@ -71,7 +71,7 @@ WHERE id = 10;
 
 -- Find how many users exist in the database;
 SELECT COUNT(*) AS user_count
-FROM mysql.user;
+FROM user;
 
 -- Select the names of the first 5 users in the database;
 SELECT name
@@ -81,7 +81,7 @@ LIMIT 5;
 -- Select the names of the last 3 users in the database;
 SELECT name
 FROM user
-ORDER BY name DESC
+ORDER BY id DESC
 LIMIT 3;
 
 -- Sum all the ids in the user table;
