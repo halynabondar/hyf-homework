@@ -114,3 +114,61 @@ WHERE user.name = 'Maryrose Meadows'
 SELECT MONTH(created) AS month, COUNT(*) AS task_count
 FROM task
 GROUP BY MONTH(created);
+
+-- Part 4: Creating a database --
+
+-- Create Genre table
+CREATE TABLE Genre
+(
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    name     VARCHAR(100) NOT NULL
+);
+
+-- Create Book table
+CREATE TABLE Book
+(
+    book_id        INT AUTO_INCREMENT PRIMARY KEY,
+    title          VARCHAR(255) NOT NULL,
+    author         VARCHAR(255) NOT NULL,
+    published_year YEAR,
+    genre_id       INT,
+    FOREIGN KEY (genre_id) REFERENCES Genre (genre_id)
+);
+
+-- Create Member table
+CREATE TABLE Member
+(
+    member_id INT AUTO_INCREMENT PRIMARY KEY,
+    name      VARCHAR(255)        NOT NULL,
+    email     VARCHAR(255) UNIQUE NOT NULL,
+    phone     VARCHAR(20)
+);
+
+-- Create Rack table
+CREATE TABLE Rack
+(
+    rack_id  INT AUTO_INCREMENT PRIMARY KEY,
+    location VARCHAR(50) NOT NULL
+);
+
+-- Create BookRack table (Linking Table for Many-to-Many Relationship)
+CREATE TABLE BookRack
+(
+    book_id INT,
+    rack_id INT,
+    PRIMARY KEY (book_id, rack_id),
+    FOREIGN KEY (book_id) REFERENCES Book (book_id),
+    FOREIGN KEY (rack_id) REFERENCES Rack (rack_id)
+);
+
+-- Create BorrowingLog table
+CREATE TABLE BorrowingLog
+(
+    log_id      INT AUTO_INCREMENT PRIMARY KEY,
+    borrow_date DATE NOT NULL,
+    return_date DATE,
+    book_id     INT,
+    member_id   INT,
+    FOREIGN KEY (book_id) REFERENCES Book (book_id),
+    FOREIGN KEY (member_id) REFERENCES Member (member_id)
+);
