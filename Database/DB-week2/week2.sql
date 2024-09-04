@@ -172,3 +172,80 @@ CREATE TABLE BorrowingLog
     FOREIGN KEY (book_id) REFERENCES Book (book_id),
     FOREIGN KEY (member_id) REFERENCES Member (member_id)
 );
+
+-- Design and implement a database for existing data --
+
+CREATE TABLE Article
+(
+    ArticleID INT PRIMARY KEY,
+    Title     VARCHAR(255),
+    Content   TEXT
+);
+
+CREATE TABLE Author
+(
+    AuthorID INT PRIMARY KEY,
+    Name     VARCHAR(255)
+);
+
+CREATE TABLE Tag
+(
+    TagID   INT PRIMARY KEY,
+    TagName VARCHAR(50)
+);
+
+CREATE TABLE ArticleAuthor
+(
+    ArticleID INT,
+    AuthorID  INT,
+    PRIMARY KEY (ArticleID, AuthorID),
+    FOREIGN KEY (ArticleID) REFERENCES Article (ArticleID),
+    FOREIGN KEY (AuthorID) REFERENCES Author (AuthorID)
+);
+
+CREATE TABLE ArticleTag
+(
+    ArticleID INT,
+    TagID     INT,
+    PRIMARY KEY (ArticleID, TagID),
+    FOREIGN KEY (ArticleID) REFERENCES Article (ArticleID),
+    FOREIGN KEY (TagID) REFERENCES Tag (TagID)
+);
+
+INSERT INTO Article (ArticleID, Title, Content)
+VALUES (1, 'BREAKING NEWS: Water is wet!',
+        'Scientists have discovered that water is wet, it\'s amazing what... ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'),
+       (2, 'Heavy Snowfall Expected this Weekend',
+        'Lots of snow is expected... Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+       (3, 'BREAKING NEWS: These 10 Clickbait Titles Are Bad for Your Health, Number 7 Will SHOCK You!',
+        'Haha, you clicked! Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.');
+
+INSERT INTO Author (AuthorID, Name)
+VALUES (1, 'James Smith'),
+       (2, 'Jane Jones'),
+       (3, 'Aliya Awad'),
+       (4, 'Igor Vladimir'),
+       (5, 'Kim Jensen');
+
+INSERT INTO Tag (TagID, TagName)
+VALUES (1, 'science'),
+       (2, 'breaking'),
+       (3, 'weather'),
+       (4, 'winter'),
+       (5, 'clickbait');
+
+INSERT INTO ArticleAuthor (ArticleID, AuthorID)
+VALUES (1, 1),
+       (1, 2),
+       (2, 3),
+       (2, 4),
+       (3, 2),
+       (3, 5);
+
+INSERT INTO ArticleTag (ArticleID, TagID)
+VALUES (1, 1),
+       (1, 2),
+       (2, 3),
+       (2, 4),
+       (3, 2),
+       (3, 5);
