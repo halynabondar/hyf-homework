@@ -1,4 +1,4 @@
--- Class exercises
+-- Class exercises --
 
 -- 1. Get all the tasks assigned to Pavel;
 SELECT COUNT(*) AS pavels_task
@@ -21,7 +21,7 @@ FROM `user`
 WHERE status.name = 'Done'
 GROUP BY user.id;
 
--- Part 1: Working with tasks
+-- Part 1: Working with tasks --
 
 -- Add a task with these attributes: title, description, created, updated, due_date, status_id, user_id
 INSERT INTO task (id, title, description, created, updated, due_date, status_id, user_id)
@@ -51,3 +51,38 @@ WHERE id = 1;
 DELETE
 FROM task
 WHERE id = 1;
+
+-- Part 2: School database --
+
+-- Create a new database containing the following tables:
+CREATE DATABASE SchoolDatabase;
+
+USE SchoolDatabase;
+
+-- Class: with the columns: id, name, begins (date), ends (date)
+CREATE TABLE Class
+(
+    id     INT AUTO_INCREMENT PRIMARY KEY,
+    name   VARCHAR(255)                                NOT NULL,
+    begins DATE                                        NOT NULL,
+    ends   DATE                                        NOT NULL,
+    status ENUM ('not-started', 'ongoing', 'finished') NOT NULL
+);
+
+-- Student: with the columns: id, name, email, phone, class_id (foreign key)
+CREATE TABLE Student
+(
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    name     VARCHAR(255) NOT NULL,
+    email    VARCHAR(255) NOT NULL,
+    phone    VARCHAR(20),
+    class_id INT,
+    FOREIGN KEY (class_id) REFERENCES Class (id)
+);
+
+-- Create an index on the name column of the student table.
+CREATE INDEX idx_student_name ON Student (name);
+
+-- Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations).
+ALTER TABLE Class
+    ADD COLUMN status ENUM ('not-started', 'ongoing', 'finished') NOT NULL DEFAULT 'not-started';
