@@ -33,3 +33,36 @@ WHERE id = 1;
 DELETE
 FROM Meal
 WHERE id = 1;
+
+-- Reservation queries --
+
+-- Get all reservations
+SELECT *
+FROM Reservation;
+
+-- Add a new reservation
+INSERT INTO Reservation (number_of_guests, meal_id, created_date, contact_phonenumber, contact_name, contact_email)
+VALUES (4,
+        1,
+        CURDATE(),
+        '123-456-7890',
+        'John Doe',
+        'john@example.com');
+
+-- Get a reservation with any id, fx 1
+SELECT *
+FROM Reservation
+WHERE id = 1;
+
+-- Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
+UPDATE Reservation
+SET number_of_guests    = 5,
+    contact_name        = 'Jane Doe',
+    contact_phonenumber = '987-654-3210'
+WHERE id = 1;
+
+-- Delete a reservation with any id, fx 1
+DELETE
+FROM Reservation
+WHERE id = 10;
+
