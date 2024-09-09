@@ -66,3 +66,32 @@ DELETE
 FROM Reservation
 WHERE id = 10;
 
+-- Review queries --
+
+-- Get all reviews
+SELECT *
+FROM Review;
+
+-- Add a new review
+INSERT INTO Review (title, description, meal_id, stars, created_date)
+VALUES ('Excellent Meal',
+        'The meal was delicious and well-prepared.',
+        1,
+        5,
+        CURDATE());
+
+-- Get a review with any id, fx 1
+SELECT *
+FROM Review
+WHERE id = 1;
+
+-- Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes
+UPDATE Review
+SET title = 'Updated Review Title',
+    stars = 4
+WHERE id = 1;
+
+-- Delete a review with any id, fx 1
+DELETE
+FROM Review
+WHERE id = 1;
