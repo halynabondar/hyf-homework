@@ -1,8 +1,8 @@
-CREATE DATABASE mealSharing;
+CREATE DATABASE meal_sharing;
 
-USE mealSharing;
+USE meal_sharing;
 
-CREATE TABLE Meal
+CREATE TABLE meal
 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
@@ -14,7 +14,7 @@ CREATE TABLE Meal
     created_date DATE
 );
 
-CREATE TABLE Reservation
+CREATE TABLE reservation
 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     number_of_guests INT,
@@ -23,10 +23,10 @@ CREATE TABLE Reservation
     contact_phonenumber VARCHAR(255),
     contact_name VARCHAR(255),
     contact_email VARCHAR(255),
-    FOREIGN KEY (meal_id) REFERENCES Meal(id)
+    FOREIGN KEY (meal_id) REFERENCES meal(id)
 );
 
-CREATE TABLE Review
+CREATE TABLE review
 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
@@ -34,5 +34,5 @@ CREATE TABLE Review
     meal_id INT,
     stars INT,
     created_date DATE,
-    FOREIGN KEY (meal_id) REFERENCES Meal(id)
+    FOREIGN KEY (meal_id) REFERENCES meal(id)
 );
