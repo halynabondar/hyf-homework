@@ -7,18 +7,22 @@ if (args.length === 0) {
     process.exit(1);
 }
 
-// Convert the arguments to numbers
-const numbers = args.map(Number);
+// Filter out non-numeric inputs and convert valid inputs to numbers
+const validNumbers = args.filter(arg => !isNaN(arg)).map(Number);
 
-// Check if all arguments are valid numbers
-if (numbers.some(isNaN)) {
-    console.error("Please provide only numbers as arguments.");
-    process.exit(1);
+// Calculate the sum and average if there are valid numbers
+if (validNumbers.length > 0) {
+    const sum = validNumbers.reduce((acc, num) => acc + num, 0);
+    const average = sum / validNumbers.length;
+
+    // Display the average
+    console.log(`The average is: ${average}`);
+
+    // Check if any parameters were ignored
+    if (validNumbers.length !== args.length) {
+        console.log("Some parameters were ignored due to being non-numeric.");
+    }
+} else {
+    // No valid numbers provided
+    console.error("No valid numbers were provided.");
 }
-
-// Calculate the sum and average
-const sum = numbers.reduce((acc, num) => acc + num, 0);
-const average = sum / numbers.length;
-
-// Display the result
-console.log(`The average is: ${average}`);
