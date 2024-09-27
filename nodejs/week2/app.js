@@ -29,19 +29,25 @@ app.get("/", (req, res) => {
 
 // GET /search endpoint
 app.get("/search", (req, res) => {
-    const query = req.query.q;
+    const { q: query } = req.query;
     const documents = getDocuments();
+
     if (!query) {
         return res.json([]);
     }
-    const filteredDocuments = documents.filter(doc =>
-        doc.value && doc.value.includes(query)
+
+    const lowerCaseQuery = query.toLowerCase();
+
+    const filteredDocuments = documents.filter(({ value }) =>
+        value && value.toLowerCase().includes(lowerCaseQuery)
     );
-    const response = filteredDocuments.map(doc => ({
-        id: doc.id,
-        type: doc.type,
-        value: doc.value
+
+    const response = filteredDocuments.map(({ id, type, value }) => ({
+        id,
+        type,
+        value
     }));
+
     return res.json(response);
 });
 
