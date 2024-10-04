@@ -29,7 +29,22 @@ contactsAPIRouter.get("/", async (req, res) => {
 
     if ("sort" in req.query) {
         const orderBy = req.query.sort.toString();
-        if (orderBy.length > 0) {
+        // const parsedOrderBy = orderBy;
+
+        // -- Volubility fix
+        const validFields = ['id', 'first_name', 'last_name', 'email', 'phone'];
+        // Convert the valid fields array into a regular expression group
+        const fieldPattern = validFields.join('|');
+
+        // Define the regular expression pattern to match <fieldname> followed by " ASC" or " DESC"
+        const regex = new RegExp(`^(${fieldPattern})\\s(ASC|DESC)$`, 'i');
+
+        // Return the input string if it matches the pattern, otherwise return an empty string
+        const parsedOrderBy =  regex.test(orderBy) ? orderBy : '';
+        // -- End of Volubility fix
+
+        if (parsedOrderBy.length > 0) {
+
             query = query.orderByRaw(orderBy);
         }
     }
