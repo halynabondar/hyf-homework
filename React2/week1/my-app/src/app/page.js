@@ -1,12 +1,11 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import AstronomyPicture from "../../pages/nasa/[picture]/page";
+import AstronomyPicture from "@/app/pages/nasa/[picture]/page";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <AstronomyPicture />
+        <h1>Hello world</h1>
       </main>
     </div>
   );
