@@ -22,6 +22,7 @@ const Navbar = () => {
         {text: 'Blogs', path: '/pages/blogs'},
         {text: 'Mars Rover Photo', path: '/pages/marsRover'},
         {text: 'NASA Epic Image', path: '/pages/nasa/epic'},
+        {text: 'Form', path: '/pages/form'},
     ];
 
     const renderMenuItem = (item) => (
@@ -31,7 +32,7 @@ const Navbar = () => {
     );
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'cornflowerblue' }}>
+        <AppBar position="static" sx={{ backgroundColor: 'cornflowerblue', marginBottom: "20px" }}>
             <Toolbar>
                 <Typography variant="h6" style={{ flexGrow: 1 }}>
                     My Website
