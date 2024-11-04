@@ -1,6 +1,6 @@
 export default async function Blog({ params }) {
     const data = await params;
-    const blog = await fetch(`http://localhost:3000/api/blogs/${data.id}`).then(res => res.json());
+    const blog = await fetch(`http://localhost:3002/api/blogs/${data.id}`).then(res => res.json());
 
     if (blog.error) {
         return <h1>{blog.error}</h1>;
