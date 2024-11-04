@@ -2,7 +2,7 @@ import React from 'react';
 
 const apiKey = "TaA8BgllKVYPCxHa4t6SkF5NemO6QmTGv4lwvRkM";
 
-export default async function AstronomyPicture() {
+export default async function AstronomyPicture({url, title, explanation}) {
     const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
     const data = await res.json();
 

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {useEffect, useState} from "react";
-import Navbar from "@/app/pages/components/navbar";
 
 const apiKey = "TaA8BgllKVYPCxHa4t6SkF5NemO6QmTGv4lwvRkM";
 const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
@@ -20,26 +19,19 @@ export default function MarsRoverPage() {
                 const data = await response.json();
                 setPhotos(data.photos);
             } catch (error) {
-                console.error("Error fetching astronomy picture of the day:", error);
+                console.error("Error fetching Mars Rover photos:", error);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchPhotos();
-
-        return () => {
-            setPhotos([]);
-            setLoading(true);
-        };
-
     }, []);
 
     if (loading) return <p>Loading Mars Rover photos...</p>;
 
     return (
         <>
-            <Navbar/>
             <div style={{margin: "40px"}}>
                 <h2 style={{paddingBottom: "20px"}}>Mars Rover Photos</h2>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '2rem'}}>

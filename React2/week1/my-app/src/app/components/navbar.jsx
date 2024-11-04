@@ -2,8 +2,8 @@
 
 import React, {useState} from 'react';
 import {AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemText} from '@mui/material';
-import {Menu as MenuIcon, Home as HomeIcon, Info as InfoIcon, ContactMail as ContactIcon} from '@mui/icons-material';
-import {useRouter} from 'next/navigation'; // use Next.js router
+import {Menu as MenuIcon} from '@mui/icons-material';
+import {useRouter} from 'next/navigation';
 import {useMediaQuery, useTheme} from '@mui/material';
 
 const Navbar = () => {
@@ -19,10 +19,10 @@ const Navbar = () => {
 
     const menuItems = [
         {text: 'Home', path: '/'},
-        {text: 'Blogs', path: '/pages/blogs'},
-        {text: 'Mars Rover Photo', path: '/pages/marsRover'},
-        {text: 'NASA Epic Image', path: '/pages/nasa/epic'},
-        {text: 'Form', path: '/pages/form'},
+        {text: 'Blogs', path: '/blogs'},
+        {text: 'Mars Rover Photo', path: '/marsRover'},
+        {text: 'NASA Epic Image', path: '/nasa/epic'},
+        {text: 'Form', path: '/form'},
     ];
 
     const renderMenuItem = (item) => (

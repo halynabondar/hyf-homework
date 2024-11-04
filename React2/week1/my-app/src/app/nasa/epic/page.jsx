@@ -2,7 +2,6 @@
 
 import {useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
-import Navbar from "@/app/pages/components/navbar";
 
 const apiKey = "TaA8BgllKVYPCxHa4t6SkF5NemO6QmTGv4lwvRkM";
 
@@ -49,7 +48,6 @@ export default function SearchEpicImage() {
 
     return (
         <>
-            <Navbar/>
             <div style={{marginTop: "20px", marginLeft: "20px"}}>
                 {image ? (
                     <img style={{height: "700px"}} src={image} alt={`NASA EPIC Image for ${searchDate}`}/>
