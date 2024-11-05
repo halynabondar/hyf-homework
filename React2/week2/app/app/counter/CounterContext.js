@@ -1,15 +1,15 @@
 "use client"
 
-import React, { useReducer, useContext, createContext} from 'react';
+import React, {useReducer, useContext, createContext} from 'react';
 
-const initialState = { count: 0 };
+const initialState = {count: 0};
 
 function CounterReducer(state, action) {
     switch (action.type) {
         case 'increment':
-            return { count: state.count + 1 };
+            return {count: state.count + 1};
         case 'decrement':
-            return { count: state.count - 1 };
+            return {count: state.count - 1};
         default:
             throw new Error(`Unknown action type: ${action.type}`);
     }
@@ -17,10 +17,10 @@ function CounterReducer(state, action) {
 
 const CounterContext = createContext();
 
-export function CounterProvider({ children }) {
+export function CounterProvider({children}) {
     const [state, dispatch] = useReducer(CounterReducer, initialState);
     return (
-        <CounterContext.Provider value={{ state, dispatch }}>
+        <CounterContext.Provider value={{state, dispatch}}>
             {children}
         </CounterContext.Provider>
     );

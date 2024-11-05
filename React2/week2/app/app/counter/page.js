@@ -1,11 +1,11 @@
 import React from 'react';
-import { CounterProvider } from './CounterContext';
+import {CounterProvider} from './CounterContext';
 import CounterPage from './CounterPage';
 
 function App() {
     return (
         <CounterProvider>
-            <CounterPage />
+            <CounterPage/>
         </CounterProvider>
     );
 }
