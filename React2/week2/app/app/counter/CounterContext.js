@@ -4,7 +4,7 @@ import React, {useReducer, useContext, createContext} from 'react';
 
 const initialState = {count: 0};
 
-function CounterReducer(state, action) {
+function counterReducer(state, action) {
     switch (action.type) {
         case 'increment':
             return {count: state.count + 1};
@@ -18,7 +18,7 @@ function CounterReducer(state, action) {
 const CounterContext = createContext();
 
 export function CounterProvider({children}) {
-    const [state, dispatch] = useReducer(CounterReducer, initialState);
+    const [state, dispatch] = useReducer(counterReducer, initialState);
     return (
         <CounterContext.Provider value={{state, dispatch}}>
             {children}
