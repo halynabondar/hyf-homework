@@ -1,5 +1,5 @@
       Carrot
       Cucumber
-      Parsnip
+      Garlic
       Cabbage
       Potato
