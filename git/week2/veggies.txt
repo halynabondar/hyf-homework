@@ -1,6 +1,7 @@
       Carrot
       Cucumber
       Pumpkin
+      Garlic
       Cabbage
       Potato
       Parsnip
