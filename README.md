@@ -31,6 +31,17 @@
 <li>Gained skills in designing database schemas, querying with SQL, and understanding data modeling.</li>
 </ul>
 
+<h4>Node.js:</h4>
+<ul>
+<li>Explored backend development with Node.js, including creating RESTful APIs, handling file systems, and using Express for server-side functionality.</li>
+</ul>
+
+<h4>React:</h4>
+<ul>
+<li>Developed expertise in building Single Page Applications (SPA) using React.</li>
+<li>Covered state management, lifecycle methods, forms, routing with React Router, and Redux.</li>
+</ul>
+
 <h4></h4>
 <ul>
 <li></li>
@@ -38,3 +49,9 @@
 <li></li>
 </ul>
 
+<h4></h4>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
