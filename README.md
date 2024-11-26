@@ -52,3 +52,5 @@
 <li>Collaborated in a team to build a full-stack application, integrating all skills learned throughout the program.</li>
 <li>Focused on agile methodologies, scoping, and requirement analysis while solving a real-world challenge.</li>
 </ul>
+
+<p>This program not only strengthened my technical expertise but also enhanced my ability to work in a team, communicate effectively, and adapt to new challenges. It was an invaluable experience that prepared me for a successful career in web development.</p>
