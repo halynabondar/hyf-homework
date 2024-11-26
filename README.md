@@ -42,16 +42,13 @@
 <li>Covered state management, lifecycle methods, forms and routing with React Router.</li>
 </ul>
 
-<h4></h4>
+<h4>Career Training:</h4>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Prepared for the job market with training in CV writing, LinkedIn optimization, GitHub portfolio presentation, and technical interview preparation.</li>
 </ul>
 
-<h4></h4>
+<h4>Final Project:</h4>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Collaborated in a team to build a full-stack application, integrating all skills learned throughout the program.</li>
+<li>Focused on agile methodologies, scoping, and requirement analysis while solving a real-world challenge.</li>
 </ul>
