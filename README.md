@@ -25,11 +25,10 @@
 <li>Explored functional programming concepts such as map, reduce, and filter.</li>
 </ul>
 
-<h4></h4>
+<h4>Databases:</h4>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Learned about relational and NoSQL databases, focusing on MySQL and MongoDB.</li>
+<li>Gained skills in designing database schemas, querying with SQL, and understanding data modeling.</li>
 </ul>
 
 <h4></h4>
