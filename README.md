@@ -39,7 +39,7 @@
 <h4>React:</h4>
 <ul>
 <li>Developed expertise in building Single Page Applications (SPA) using React.</li>
-<li>Covered state management, lifecycle methods, forms, routing with React Router, and Redux.</li>
+<li>Covered state management, lifecycle methods, forms and routing with React Router.</li>
 </ul>
 
 <h4></h4>
